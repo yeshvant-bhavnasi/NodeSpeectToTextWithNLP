@@ -1,0 +1,30 @@
+{
+  "name": "transform-node",
+  "version": "1.0.0",
+  "description": "node.js project to make server,client interaction for audio to text and annotatiion on text for insurance calls",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@google-cloud/language": "^3.2.3",
+    "@google-cloud/speech": "^3.2.2",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.4",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "hbs": "^4.0.4",
+    "jquery": "^3.4.1",
+    "morgan": "^1.9.1",
+    "node-record-lpcm16": "^0.3.1",
+    "serve-favicon": "^2.5.0",
+    "socket.io": "^2.2.0",
+    "yargs": "^13.2.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}
