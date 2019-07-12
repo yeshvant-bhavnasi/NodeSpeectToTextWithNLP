@@ -12,7 +12,10 @@
   "dependencies": {
     "@google-cloud/language": "^3.2.3",
     "@google-cloud/speech": "^3.2.2",
+    "async": "^3.1.0",
+    "bluebird": "^3.5.5",
     "body-parser": "^1.19.0",
+    "compromise": "^11.13.2",
     "cookie-parser": "^1.4.4",
     "cors": "^2.8.5",
     "express": "^4.17.1",
@@ -20,6 +23,7 @@
     "jquery": "^3.4.1",
     "morgan": "^1.9.1",
     "node-record-lpcm16": "^0.3.1",
+    "promise": "^8.0.3",
     "serve-favicon": "^2.5.0",
     "socket.io": "^2.2.0",
     "yargs": "^13.2.4"

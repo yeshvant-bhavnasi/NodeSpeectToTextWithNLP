@@ -14,33 +14,33 @@
     <nav class='navbar navbar-dark bg-dark'>
         <a class='navbar-brand' href='#'>Transformers</a>
     </nav>
-    <div id='main-content' class='container-fluid'>
-        <div class='row'>
-            <div class="col-sm-2">
-              <div class="row form-group form-inline">
-                  <div class="col-sm-12">
-                      <h3> User :</h3>
-                      <select class="form-control" id="userType">
-                          <option>customer</option>
-                          <option>Agent</option>
-                      </select>
-                      <button type="button" class="btn btn-primary" id="setProfile" >Set Profile</button>
+        <div id='main-content' class='container-fluid'>
+            <div class='row'>
+                <div class="col-sm-2">
+                <div class="row form-group form-inline">
+                    <div class="col-sm-12">
+                        <h3> User :</h3>
+                        <select class="form-control" id="userType">
+                            <option>customer</option>
+                            <option>Agent</option>
+                        </select>
+                        <button type="button" class="btn btn-primary" id="setProfile" >Set Profile</button>
+                        </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-sm-12">
+                        <button type="button" class="btn btn-success" id="callButton" disabled="false "><i class="fa fa-phone" aria-hidden="true" ></i></button>
+                        <button type="button" class="btn btn-danger" id="hangupButton" disabled="true">Hang Up</button>
                     </div>
-              </div>
-              <div class="row form-group">
-                  <div class="col-sm-12">
-                      <button type="button" class="btn btn-success" id="callButton" disabled="false "><i class="fa fa-phone" aria-hidden="true" ></i></button>
-                      <button type="button" class="btn btn-danger" id="hangupButton" disabled="true">Hang Up</button>
-                  </div>
-              </div>
-            </div>
-            <div class="col-sm-10">
-                <h3> Transcription  :</h3>
-                <pre id="transcription">
-                </pre>
+                </div>
+                </div>
+                <div class="col-sm-10">
+                    <h3> Transcription  :</h3>
+                    <pre id="transcription">
+                    </pre>
+                </div>
             </div>
         </div>
-    </div>
 
 </body>
 <script src="/jquery/dist/jquery.js"></script>

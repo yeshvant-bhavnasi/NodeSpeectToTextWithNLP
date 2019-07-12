@@ -3,7 +3,8 @@ $(function() {
   let callButton = document.getElementById("callButton");
   let hangupButton = document.getElementById("hangupButton");
 
-  let socket = io.connect("http://10.0.0.26:3000");
+  let socket = io.connect("http://localhost:3000");
+  //let socket = io.connect("http://10.190.97.146:3000");
   let username = $("#userType");
 
   try {
@@ -25,7 +26,6 @@ $(function() {
     var current = event.resultIndex;
     console.log(event.results[current]);
     // Get a transcript of what was said.
-    var transcript = event.results[current][0].transcript;
     var dt = new Date();
     var utcDate = dt.toUTCString()
     var data = {
@@ -35,6 +35,16 @@ $(function() {
     }
     socket.emit("transcript", data);
   };
+
+  recognition.addEventListener('end', function() {
+    recognition.start();
+    console.log('Speech recognition service disconnected');
+  });
+
+  recognition.onerror = function(event) {
+    console.log('Speech recognition error detected: ' + event.error);
+    recognition.start();
+  }
 
   $('#callButton').click(function() {
     recognition.start();
@@ -54,6 +64,7 @@ $(function() {
     console.log(username.val())
     callButton.disabled = false;
     hangupButton.disabled = true;
+
     socket.emit("change_username", { username: username.val() });
   });
 
@@ -63,10 +74,10 @@ $(function() {
     hangupButton.disabled = true;
     recognition.stop();
   });
+
   socket.on("render", conversation => {
     console.log("got render request")
     document.getElementById('transcription').innerHTML = JSON.stringify(conversation,null,2);
   });
-
 
 });

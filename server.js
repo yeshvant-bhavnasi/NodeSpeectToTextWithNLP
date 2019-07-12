@@ -7,10 +7,14 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const {analyzeSentiment, entitiesDetection} = require('./gcp/nlp');
 const cors = require('cors');
-
+const annotations = require('./annotations')
 //dictionary saving the conversation
 let converstation = []
 let conversationList = [];
+let agentConversation = [];
+let userConversation = [];
+
+var allClients = [];
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -28,17 +32,24 @@ app.get("/", (req, res) => {
 app.get("/transcript", (req, res) => {
 	res.json(converstation);
 });
-
-
 app.use(cors());
 
 server = app.listen(3000);
 const io = require("socket.io")(server);
 
 io.on("connection", socket => {
-  console.log("New User Connected");
-  socket.username = "Anonymous";
 
+   allClients.push(socket);
+
+   socket.on('disconnect', function() {
+      console.log('Got disconnect! '+socket.username);
+
+      var i = allClients.indexOf(socket);
+      allClients.splice(i, 1);
+   });
+	console.log("New User Connected");
+	console.log(allClients.length);
+  socket.username = "Anonymous";
   //list on change_username
   socket.on("change_username", data => {
 		socket.username = data.username;
@@ -55,26 +66,25 @@ io.on("connection", socket => {
 	socket.on("transcript", data => {
 		if (!socket.username) {
 			console.error("user is not set up yet");
-			console.warn("ananumous transcript: ");
+			console.warn("anonymous transcript: ");
 			console.log(data);
 			return;
 		}
-		analyzeSentiment(data.transcript)
-		 .then(results => {
-			data['annotations'] = results[0].documentSentiment;
-			//send for nlp and capture annotations
-			data['user'] = socket.username;
+		console.log(socket.username);
+
+		data['user'] = socket.username;
 			 entitiesDetection(data.transcript)
 				 .then(res => {
-					 data['entities'] = res[0].entities;
-					 converstation.push(data);
-					 io.emit('render', converstation);
-				 });
-    })
+						annotations.annotations(data.transcript)
+						.then(tags => {
+							data['annotations'] = tags.annotations;
+							data['taggedTranscript'] = tags.taggedTranscript;
+							 io.emit('render', data);
+						});
+				 })
     .catch(err => {
       console.error('ERROR:', err);
-    });
-
+		});
 
 	});
 });
