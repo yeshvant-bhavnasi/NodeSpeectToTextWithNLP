@@ -3,7 +3,7 @@ $(function() {
   let callButton = document.getElementById("callButton");
   let hangupButton = document.getElementById("hangupButton");
 
-  let socket = io.connect("http://localhost:3000");
+  let socket = io.connect("http://127.0.0.1:3000");
   //let socket = io.connect("http://10.190.97.146:3000");
   let username = $("#userType");
 
