@@ -1,0 +1,380 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700);
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+
+
+.tab{
+  width: 49%;
+  display: inline-block;
+  padding: 10px;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+}
+.tab-wrapper{
+  border-bottom: 2px solid white;
+}
+
+.active{
+  background: #fff;
+  color: #000;
+}
+.container {
+  margin: 0 auto;
+  width: 350px;
+  background: linear-gradient(#00739d, #1c90c2);
+  font: 14px/20px "Lato", Arial, sans-serif;
+  color: white;
+  border-radius: 5px;
+  position: fixed;
+  left: 40px;
+}
+
+.people-list {
+  width: 260px;
+  float: left;
+}
+.people-list .search {
+  padding: 20px;
+}
+.people-list input {
+  border-radius: 3px;
+  border: none;
+  padding: 14px;
+  color: white;
+  background: #6A6C75;
+  width: 90%;
+  font-size: 14px;
+}
+.people-list .fa-search {
+  position: relative;
+  left: -25px;
+}
+.people-list ul {
+  padding: 20px;
+  height: 770px;
+}
+.people-list ul li {
+  padding-bottom: 20px;
+}
+.people-list img {
+  float: left;
+}
+.people-list .about {
+  float: left;
+  margin-top: 8px;
+}
+.people-list .about {
+  padding-left: 8px;
+}
+.people-list .status {
+  color: #92959E;
+}
+
+.chat {
+  width: 100%;
+  float: left;
+  /* background: #F2F5F8; */
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  color: #fff;
+}
+.chat .chat-header {
+  padding: 12px 20px;
+}
+.chat .chat-header img {
+  float: left;
+}
+.chat .chat-header .chat-about {
+  float: left;
+  padding-left: 10px;
+  margin-top: 11px;
+}
+.chat .chat-header .chat-with {
+  font-weight: bold;
+  font-size: 16px;
+  cursor:pointer;
+}
+.chat .chat-header .chat-num-messages {
+  color: #92959E;
+}
+.chat .chat-header .play {
+  float: left;
+  color: #00739d;
+  font-size: 20px;
+  margin-top: 4px;
+  cursor: pointer;
+  background: #fff;
+  border-radius: 100%;
+  text-align: center;
+  width: 37px;
+  padding: 8px;
+  padding: 8px 7px 7px 8px;
+}
+.chat .chat-history {
+  border-bottom: 2px solid white;
+  overflow-y: scroll;
+  height: 450px;
+  background: #fff;
+  color: #444753;
+}
+.chat .chat-history .message-data {
+  margin-bottom: 15px;
+}
+.chat .chat-history .message-data-time {
+  color: #a8aab1;
+  padding-left: 6px;
+}
+.chat .chat-history .message {
+  color: white;
+  padding: 18px 20px;
+  line-height: 26px;
+  font-size: 16px;
+  border-radius: 7px;
+  margin-bottom: 30px;
+  width: 90%;
+  position: relative;
+}
+.chat .chat-history .message:after {
+  bottom: 100%;
+  left: 7%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-bottom-color: #86BB71;
+  border-width: 10px;
+  margin-left: -10px;
+}
+.chat .chat-history .my-message {
+  background: #86BB71;
+}
+.chat .chat-history .other-message {
+  background: #94C2ED;
+}
+.chat .chat-history .other-message:after {
+  border-bottom-color: #94C2ED;
+  left: 93%;
+}
+.chat .chat-message {
+  padding: 30px;
+}
+.chat .chat-message textarea {
+  width: 100%;
+  border: none;
+  padding: 10px 20px;
+  font: 14px/22px "Lato", Arial, sans-serif;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  resize: none;
+}
+.chat .chat-message .fa-file-o, .chat .chat-message .fa-file-image-o {
+  font-size: 16px;
+  color: gray;
+  cursor: pointer;
+}
+.chat .chat-message button {
+  float: right;
+  color: #94C2ED;
+  font-size: 16px;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  background: #F2F5F8;
+}
+.chat .chat-message button:hover {
+  color: #75b1e8;
+}
+
+.online, .offline, .me {
+  margin-right: 3px;
+  font-size: 10px;
+}
+
+.online {
+  color: #86BB71;
+}
+
+.offline {
+  color: #E38968;
+}
+
+.me {
+  color: #94C2ED;
+}
+
+.align-left {
+  text-align: left;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.float-right {
+  float: right;
+}
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+
+.suggestion-wrapper{
+  border-bottom: 1px solid #c6bebe;
+  padding-bottom: 6px;
+  background: #fff9f8;
+  padding: 8px 10px;
+  position: relative;
+}
+
+.suggestion-txt span{
+  background: #1472d8;
+  padding: 2px 15px;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.confirm-btn{
+  bottom: 5px;
+  right: 5px;
+  position: absolute;
+}
+
+.confirm-btn img{
+  width: 20px;
+  cursor: pointer;
+}
+
+#transcription{
+  padding: 30px 30px 20px;
+}
+
+.suggestion-txt{
+  margin-left: 15px;
+  margin-top: 5px;
+}
+
+.my-message span{
+  /* background: #8fc2ef; */
+  color: #000;
+}
+
+.show {
+  display: block;
+}
+.hide {
+  display: none;
+}
+
+
+#floating-container {
+  position: fixed;
+  width: 70px;
+  height: 70px;
+  bottom: 10px;
+  left: 20px;
+  z-index: 50;
+}
+
+
+
+#floating-container .floating-menus > div:nth-of-type(1){
+  bottom: 40px;
+  animation: findcon 0.1s linear;
+  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.5);
+}
+
+
+#floating-container .fab-button {
+  position: absolute;
+  color: #fff;
+  padding: 18px 32px 13px 19px;
+  width: 56px;
+  border-radius: 50%;
+  background-color: #00739d;
+  cursor: pointer;
+  box-shadow: 0px 3px 3px #BDBDBD;
+}
+
+@keyframes findcon {
+  from {bottom:0px;}
+  to {bottom: 40px;}
+}
+@keyframes viewlist {
+  from {bottom:80px;}
+  to {bottom: 125px;}
+}
+@keyframes addlist {
+  from {bottom:80px;}
+  to {bottom: 160px;}
+}
+@keyframes people {
+  from {bottom:80px;}
+  to {bottom: 195px;}
+}
+@keyframes invite {
+  from {bottom:80px;}
+  to {bottom: 230px;}
+}
+@keyframes onlineuser {
+  from {bottom:80px;}
+  to {bottom: 265px;}
+}
+@keyframes activities {
+  from {bottom:80px;}
+  to {bottom: 300px;}
+}
+
+.fab-button img{
+  height: 20px;
+  width: 17px;
+}
+
+.chat-header .logo{
+  height: 42px;
+}
+
+.transcription-wrapper{
+  margin-bottom: 10px;
+}
+.transcription-wrapper .icon{
+  border-radius: 21px;
+  background: #dadada;
+  padding: 5px;
+  margin-right: 10px;
+  display: inline-block;
+  width: 30px;
+  text-align: center;
+  color: #00739d;
+}
+
+span.gw-image-versioning-logo-mobile{
+  width: 20px;
+  height: 20px;
+}
+
+.transcription_msg{
+  color:#9a9a9a; 
+}
+.transcription_msg span{
+  cursor: pointer;
+  font-weight: 600;
+  background: #dbe5f6;
+  color: #000;
+}
+
+.hoverClass,span.ui-draggable-helper{
+  font-size: 40px;
+  color: #00739d;
+}
